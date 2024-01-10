@@ -1,27 +1,32 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Citirea datelor din fișierul CSV
-data = pd.read_csv('data.csv')
-# Afișarea tuturor valorilor
-print("Toate valorile:")
-print(data)
 
-# Afișarea primelor 6 valori
-print("\nPrimele 6 valori:")
-print(data.head(6))
+def plot_data_from_csv():
+    x = 6
+    y = 6
 
-# Eliminarea rândurilor cu valori lipsă în coloanele 'Durata' și 'Puls'
-data_clean = data.dropna(subset=['Durata', 'Puls'])
+    csv_data = pd.read_csv('data.csv')
+    plot_all_values(csv_data)
 
-# Afișarea ultimelor 6 valori pentru coloanele Durata și Puls
-ultimele_6_valori = data_clean[['Durata', 'Puls']].tail(6)
-print("\nUltimele 6 valori pentru Durata și Puls:")
-print(ultimele_6_valori)
+    plot_first_x_values(csv_data, x)
 
-# Trasarea graficului pentru ultimele 6 valori valide pentru coloanele Durata și Puls
-ultimele_6_valori.plot(x='Durata', y='Puls', kind='bar')
-plt.xlabel('Durata')
-plt.ylabel('Puls')
-plt.title('Ultimele 6 valori valide pentru Durata și Puls')
-plt.show()
+    plot_last_y_values(csv_data, y)
+
+
+def plot_all_values(csv_data):
+    csv_data.plot()
+    plt.title('Grafic cu toate valorile')
+    plt.show()
+
+
+def plot_first_x_values(csv_data, x):
+    csv_data.head(x).plot()
+    plt.title(f'Grafic cu primele {x} valori')
+    plt.show()
+
+
+def plot_last_y_values(csv_data, y):
+    csv_data[['Durata', 'Puls']].tail(y).plot()
+    plt.title(f'Grafic cu ultimele {y} valori pentru Durata si Puls')
+    plt.show()
