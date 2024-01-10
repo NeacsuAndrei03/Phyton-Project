@@ -1,38 +1,35 @@
-# Problema 2: Importul și vizualizarea datelor din fișierul CSV
+# Problema 2: Importul și afișarea grafică a datelor dintr-un fișier CSV
 
-Acest proiect implică importul datelor dintr-un fișier CSV și realizarea unei afișări grafice a acestora folosind Python.
+Acest fișier conține o soluție pentru problema 2, care implică importul și afișarea grafică a datelor dintr-un fișier CSV folosind Python și bibliotecile pandas și matplotlib.
 
 ## Descrierea Problemei
 
 - Se consideră un fișier `data.csv` care conține date.
-- Scopul problemei este să importăm aceste date într-un mediu Python și să le vizualizăm sub diferite forme.
+- Problema implică importul datelor din acest fișier și afișarea grafică a:
+    - Tuturor valorilor
+    - Primelor 6 valori
+    - Ultimele 6 valori pentru coloanele 'Durata' și 'Puls'
 
 ## Soluție
 
-1. **Importul datelor:**
-   - Se folosește biblioteca Pandas pentru a citi datele din fișierul CSV (`data.csv`) și a le încărca într-un cadru de date.
+1. **Importul și prelucrarea datelor din fișierul CSV:**
+   - Datele sunt importate din fișierul `data.csv` folosind biblioteca pandas.
 
-2. **Afișarea tuturor valorilor:**
-   - Se afișează toate valorile din fișierul CSV.
+2. **Afișarea grafică a datelor:**
+   - Sunt create funcții separate pentru a afișa graficul pentru:
+        - Toate valorile importate
+        - Primele 6 valori din setul de date
+        - Ultimele 6 valori pentru coloanele 'Durata' și 'Puls'
 
-3. **Afișarea primelor 6 valori:**
-   - Se afișează primele 6 valori din fișierul CSV pentru a oferi o privire rapidă asupra datelor.
-
-4. **Procesarea datelor:**
-   - Se elimină rândurile care conțin valori lipsă (NaN) în coloanele 'Durata' și 'Puls'.
-
-5. **Afișarea ultimelor 6 valori pentru coloanele Durata și Puls:**
-   - Se afișează ultimele 6 valori valabile din coloanele 'Durata' și 'Puls' din fișierul CSV.
-
-6. **Trasarea graficului:**
-   - Se trasează un grafic de bare pentru ultimele 6 valori valide ale coloanelor 'Durata' și 'Puls'.
+3. **Folosirea bibliotecilor pandas și matplotlib:**
+   - Datele sunt afișate grafic folosind funcțiile bibliotecilor pandas și matplotlib.
 
 ## Cum să folosești codul
 
-- Ai nevoie de fișierul `data.csv` pentru a rula codul.
-- Asigură-te că ai bibliotecile Pandas și Matplotlib instalate în mediul tău Python.
+- Asigură-te că ai instalate bibliotecile Python necesare: `pandas` și `matplotlib`.
+- Descarcă fișierul `data.csv` și asigură-te că acesta este în același director cu scriptul Python.
+- Rulează scriptul pentru a afișa graficele pentru datele din fișierul CSV.
 
 ## Structura codului
-
-- Codul Python importă datele din fișierul CSV și utilizează Pandas pentru a le manipula și afișa grafic folosind Matplotlib.
+- Scriptul Python conține funcțiile necesare pentru a importa datele din fișierul CSV și a afișa graficele corespunzătoare conform cerințelor problemei.
 
