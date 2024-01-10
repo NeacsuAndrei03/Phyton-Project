@@ -1,0 +1,3 @@
+In ultima parte a conversatiei cu ChatGPT am incercat sa creez o interfata grafica cu Flask pentru proiectul final.Relevanta pentru tema de casa este doar prima jumatate a conversatiei!
+
+https://chat.openai.com/share/df852907-9763-416e-af34-29125763b66b
