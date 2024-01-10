@@ -1,65 +1,27 @@
-class Employee:
-    """Common base class for all employees"""
-    empCount = 0
-#X=NEACSU
-#Y=ANDREI
-    def __init__(self, name, salary):
-        self.name = name
-        self.salary = salary
-        self.tasks = {}
-        Employee.empCount += 1
+import pandas as pd
+import matplotlib.pyplot as plt
 
-    def display_emp_count(self):
-        """Displays the number of employees"""
-        print(f"Total number of employee(s) is {Employee.empCount}")
+# Citirea datelor din fișierul CSV
+data = pd.read_csv('data.csv')
+# Afișarea tuturor valorilor
+print("Toate valorile:")
+print(data)
 
-    def display_employee(self):
-        """Displays employee details"""
-        print("Name : ", self.name, ", Salary: ", self.salary)
+# Afișarea primelor 6 valori
+print("\nPrimele 6 valori:")
+print(data.head(6))
 
-    def __del__(self):
-        Employee.empCount -= 1
+# Eliminarea rândurilor cu valori lipsă în coloanele 'Durata' și 'Puls'
+data_clean = data.dropna(subset=['Durata', 'Puls'])
 
-    def modify_task(self, task_name, status="New"):
-        self.tasks[task_name] = status
+# Afișarea ultimelor 6 valori pentru coloanele Durata și Puls
+ultimele_6_valori = data_clean[['Durata', 'Puls']].tail(6)
+print("\nUltimele 6 valori pentru Durata și Puls:")
+print(ultimele_6_valori)
 
-    def display_task(self, status):
-        print(f"Tasks with status {status}")
-        for name in self.tasks.keys():
-            if self.tasks[name] == status:
-                print(name)
-
-
-class Manager(Employee):
-    """Manager class inheriting from Employee"""
-
-    mgr_count = 0
-
-    def __init__(self, name, salary, department):
-        super().__init__(name, salary)
-        self.department = "D5 " + department  # Prefix department name with "D5"
-        Manager.mgr_count += 1
-
-    def display_employee(self):
-        """Displays only the name of the employee"""
-        print("Name : ", self.name)
-
-# Creating instances of Employee and Manager classes
-emp1 = Employee("Radu Popa", 50000)
-emp2 = Employee("Popescu Traian", 60000)
-
-mgr1 = Manager("Neacsu Andrei", 80000, "Finance")
-mgr2 = Manager("Vladislav Noris", 75000, "Marketing")
-
-# Displaying employees and managers
-print("Displaying all employees:")
-emp1.display_employee()
-emp2.display_employee()
-
-print("\nDisplaying all managers:")
-mgr1.display_employee()
-mgr2.display_employee()
-
-# Displaying counts of employees and managers
-print(f"\nEmployee count: {emp1.empCount}")
-print(f"Manager count: {mgr1.mgr_count}")
+# Trasarea graficului pentru ultimele 6 valori valide pentru coloanele Durata și Puls
+ultimele_6_valori.plot(x='Durata', y='Puls', kind='bar')
+plt.xlabel('Durata')
+plt.ylabel('Puls')
+plt.title('Ultimele 6 valori valide pentru Durata și Puls')
+plt.show()
